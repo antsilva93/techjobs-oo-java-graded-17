@@ -36,4 +36,7 @@ public class JobTest {
         //assertFalse(jobOne.equals(jobTwo)); - original test but gave yellow squiggle
         assertNotEquals(jobOne, jobTwo);
     }
+
+    //Task 5 unit tests below
+
 }
