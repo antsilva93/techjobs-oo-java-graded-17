@@ -17,7 +17,12 @@ public class JobTest {
     @Test
     public void testJobConstructorSetsAllFields() {
         Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        //5 assert true assigning class needed still
+
+        assertTrue(job.getEmployer() instanceof Employer); //ask about null
+        assertTrue(job.getLocation() instanceof Location);
+        assertTrue(job.getPositionType() instanceof PositionType);
+        assertTrue(job.getCoreCompetency() instanceof CoreCompetency);
+
         assertEquals(job.getName(), "Product tester");
         assertEquals(job.getEmployer().getValue(),"ACME");
         assertEquals(job.getLocation().getValue(), "Desert");
@@ -28,7 +33,7 @@ public class JobTest {
     public void testJobsForEquality() {
         Job jobOne = new Job("Fry Cook", new Employer("Krusty Krab"), new Location("Bikini Bottom"), new PositionType("Cook"), new CoreCompetency("Jellyfishing"));
         Job jobTwo = new Job("Fry Cook", new Employer("Krusty Krab"), new Location("Bikini Bottom"), new PositionType("Cook"), new CoreCompetency("Jellyfishing"));
-        assertFalse(jobOne.equals(jobTwo));
-        //assertNotEquals(jobOne, jobTwo);
+        //assertFalse(jobOne.equals(jobTwo)); - original test but gave yellow squiggle
+        assertNotEquals(jobOne, jobTwo);
     }
 }
