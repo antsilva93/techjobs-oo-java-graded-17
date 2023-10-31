@@ -1,6 +1,8 @@
 package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
+
+import static java.lang.System.lineSeparator;
 import static org.junit.Assert.*;
 
 
@@ -38,5 +40,26 @@ public class JobTest {
     }
 
     //Task 5 unit tests below
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job jobOne = new Job("Fry Cook", new Employer("Krusty Krab"), new Location("Bikini Bottom"), new PositionType("Cook"), new CoreCompetency("Jellyfishing"));
+        String firstCharacter = String.valueOf(jobOne.toString().charAt(0));
+        String lastCharacter = String.valueOf(jobOne.toString().charAt(jobOne.toString().length()-1));
+        assertEquals(firstCharacter, lineSeparator());
+        assertEquals(lastCharacter, lineSeparator());
+    }
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job jobOne = new Job("Fry Cook", new Employer("Krusty Krab"), new Location("Bikini Bottom"), new PositionType("Cook"), new CoreCompetency("Jellyfishing"));
+        String jobOneString = jobOne.toString();
+        //magic code pls work
+    }
+
+    @Test
+    public void testToStringOnlyHasIdData() {
+        Job jobOne = new Job();
+        assertEquals(jobOne.toString(), "OOPS! This job does not seem to exist.");
+    }
 
 }

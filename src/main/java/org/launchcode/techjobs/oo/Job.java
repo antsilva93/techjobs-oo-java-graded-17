@@ -1,6 +1,7 @@
 package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
+import java.util.stream.Stream;
 
 public class Job {
 
@@ -92,6 +93,14 @@ public class Job {
 
     public int getId() {
         return id;
+    }
+
+    public String toString() {
+        if (Stream.of(name, employer, location, positionType, coreCompetency).allMatch(Objects::isNull)) { //I googled this and mostly get it
+            return "OOPS! This job does not seem to exist.";
+        } else {
+            return System.lineSeparator() + "test text" + System.lineSeparator();
+        }
     }
 
 }
