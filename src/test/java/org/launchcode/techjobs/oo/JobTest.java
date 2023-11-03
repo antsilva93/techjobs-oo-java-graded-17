@@ -59,8 +59,7 @@ public class JobTest {
                 "Employer: " + jobOne.getEmployer() + System.lineSeparator() +
                 "Location: " + jobOne.getLocation() + System.lineSeparator() +
                 "Position Type: " + jobOne.getPositionType() + System.lineSeparator() +
-                "Core Competency: " + jobOne.getCoreCompetency() + System.lineSeparator() +
-                System.lineSeparator();
+                "Core Competency: " + jobOne.getCoreCompetency() + System.lineSeparator();
         assertEquals(jobOneString, JobOneExpected);
         //magic code pls work
     }
