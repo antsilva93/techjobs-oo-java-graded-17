@@ -53,7 +53,30 @@ public class JobTest {
     public void testToStringContainsCorrectLabelsAndData() {
         Job jobOne = new Job("Fry Cook", new Employer("Krusty Krab"), new Location("Bikini Bottom"), new PositionType("Cook"), new CoreCompetency("Jellyfishing"));
         String jobOneString = jobOne.toString();
+        String JobOneExpected = System.lineSeparator() +
+                "ID: " + jobOne.getId() + System.lineSeparator() +
+                "Name: " + jobOne.getName() + System.lineSeparator() +
+                "Employer: " + jobOne.getEmployer() + System.lineSeparator() +
+                "Location: " + jobOne.getLocation() + System.lineSeparator() +
+                "Position Type: " + jobOne.getPositionType() + System.lineSeparator() +
+                "Core Competency: " + jobOne.getCoreCompetency() + System.lineSeparator() +
+                System.lineSeparator();
+        assertEquals(jobOneString, JobOneExpected);
         //magic code pls work
+    }
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job jobOne = new Job("Fry Cook", new Employer("Krusty Krab"), new Location(""), new PositionType("Cook"), new CoreCompetency(""));
+        String jobOneExpected = System.lineSeparator() +
+                "ID: " + jobOne.getId() + System.lineSeparator() +
+                "Name: " + jobOne.getName() + System.lineSeparator() +
+                "Employer: " + jobOne.getEmployer() + System.lineSeparator() +
+                "Location: Data not available" + System.lineSeparator() +
+                "Position Type: " + jobOne.getPositionType() + System.lineSeparator() +
+                "Core Competency: Data not available" + System.lineSeparator();
+        assertEquals(jobOneExpected,
+                jobOne.toString());
+
     }
 
     @Test

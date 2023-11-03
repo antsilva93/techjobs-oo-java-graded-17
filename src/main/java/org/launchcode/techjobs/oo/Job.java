@@ -99,7 +99,15 @@ public class Job {
         if (Stream.of(name, employer, location, positionType, coreCompetency).allMatch(Objects::isNull)) { //I googled this and mostly get it
             return "OOPS! This job does not seem to exist.";
         } else {
-            return System.lineSeparator() + "test text" + System.lineSeparator();
+            StringBuilder output = new StringBuilder();
+            output.append(System.lineSeparator());
+            output.append("ID: ").append(getId()).append(System.lineSeparator());
+            output.append("Name: ").append(this.name.isEmpty() ? "Data not available" : this.getName()).append(System.lineSeparator());
+            output.append("Employer: ").append(this.getEmployer().getValue().isEmpty() ? "Data not available" : this.getEmployer()).append(System.lineSeparator());
+            output.append("Location: ").append(this.getLocation().getValue().isEmpty() ? "Data not available" : this.getLocation()).append(System.lineSeparator());
+            output.append("Position Type: ").append(this.getPositionType().getValue().isEmpty() ? "Data not available" : this.getPositionType()).append(System.lineSeparator());
+            output.append("Core Competency: ").append(this.getCoreCompetency().getValue().isEmpty() ? "Data not available" : this.getCoreCompetency()).append(System.lineSeparator());
+            return output.toString();
         }
     }
 
